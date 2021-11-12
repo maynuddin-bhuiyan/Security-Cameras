@@ -7,7 +7,7 @@ const useData = () => {
 
     //Loaed Data
     useEffect(() => {
-        fetch('http://localhost:7000/cameras')
+        fetch('https://guarded-beach-94669.herokuapp.com/cameras')
             .then(res => res.json())
             .then(data => setservices(data))
     },

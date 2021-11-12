@@ -66,7 +66,7 @@ const PlaceOrder = () => {
         }
 
         // send to the server
-        fetch('http://localhost:7000/oder', {
+        fetch('https://guarded-beach-94669.herokuapp.com/oder', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

@@ -32,7 +32,7 @@ const Review = () => {
             ...orderinfo
         }
 
-        fetch('http://localhost:7000/review', {
+        fetch('https://guarded-beach-94669.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

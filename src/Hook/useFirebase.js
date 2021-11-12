@@ -108,7 +108,7 @@ const useFirebase = () => {
     
         const user = { email, displayName };
 
-        fetch('http://localhost:7000/user', {
+        fetch('https://guarded-beach-94669.herokuapp.com/user', {
             method: method,
             headers: {
                 'content-type' : 'application/json'
@@ -124,7 +124,7 @@ const useFirebase = () => {
 
 
   useEffect( () => {
-      fetch(`http://localhost:7000/user/${user.email}`)
+      fetch(`https://guarded-beach-94669.herokuapp.com/user/${user.email}`)
       .then(res => res.json())
       .then(data => setIsAdmin(data.admin))
 

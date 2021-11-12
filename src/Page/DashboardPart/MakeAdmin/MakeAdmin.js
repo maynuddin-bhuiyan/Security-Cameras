@@ -19,7 +19,7 @@ const MakeAdmin = () => {
         
         const user = {email};
 
-        fetch('http://localhost:7000/user/admin', {
+        fetch('https://guarded-beach-94669.herokuapp.com/user/admin', {
             method: 'PUT',
             headers: {
                 'content-type' : 'application/json'

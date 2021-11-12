@@ -13,7 +13,7 @@ const OrderReview = () => {
     const [order, setOrder] = useState([]);
 
     useEffect( () => {
-        const uri = `http://localhost:7000/oder?email=${user.email}`;
+        const uri = `https://guarded-beach-94669.herokuapp.com/oder?email=${user.email}`;
         fetch(uri)
         .then(res => res.json())
         .then(data => setOrder(data))
