@@ -31,6 +31,7 @@ const SecurityCameraItam = () => {
     return (
         <div>
             <h1>Hi .....{singleItem.name}</h1>
+            <img src={singleItem.img} alt="" />
 
             <Link to='/placeorder'>
             <Button>Place an Order</Button>
