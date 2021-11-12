@@ -1,0 +1,8 @@
+.DisplayGrid{
+    width: 350px;
+    background: rebeccapurple;
+    color: rgb(253, 253, 253);
+    padding: 50px;
+    border-radius: 20px;
+    margin: 10px;
+}

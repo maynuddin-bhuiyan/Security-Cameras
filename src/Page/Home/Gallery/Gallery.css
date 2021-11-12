@@ -1,0 +1,9 @@
+.images{
+    margin: 100px;
+}
+
+.images img{
+    margin: 30px;
+    width: 500px;
+    border-radius: 20px;
+}
