@@ -22,9 +22,12 @@ import {
   Link,
   useRouteMatch
 } from "react-router-dom";
+
 import DashboardHome from '../DashboardHome/DashboardHome';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import useAuth from '../../../Hook/useAuth';
+import { Button } from '@mui/material';
+import AllSecurityItam from '../AllSecurityItam/AllSecurityItam';
 
 
 const drawerWidth = 240;
@@ -32,25 +35,34 @@ const drawerWidth = 240;
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  let { path, url } = useRouteMatch();
+ 
   const {admin} = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  let { path, url } = useRouteMatch();
+
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
+      <Link to='/home'>Home</Link> <br /><br />
+        
+        <Link to={`${url}`}> <Button color='inherit'>Dashboard</Button> </Link><br /><br />
+
+
+{admin && <Box>
+<Link to={`${url}/makeAdmin`}><Button color='inherit'>Make An Admin</Button></Link><br /><br />
+        <Link to={`${url}/allSecurity`}><Button color='inherit'>Security</Button></Link><br /><br />
+  </Box>
+}
+
+         
+        
+
       <List>
-        <Link to='/home'>Home</Link> <br /><br />
-        <Link to={`${url}`}>Dashboard</Link><br /><br />
-        {
-          admin && 
-          <Box><Link to={`${url}/makeAdmin`}>Make An Admin</Link><br /><br /></Box>
-          
-        }
 
         {['Review', 'Pay', 'Your Orders', 'Logout'].map((text, index) => (
           <ListItem button key={text}>
@@ -89,7 +101,7 @@ function Dashboard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Dashboard
+            Dashboard is
           </Typography>
         </Toolbar>
       </AppBar>
@@ -137,6 +149,10 @@ function Dashboard(props) {
         </Route>
         <Route path={`${path}/makeAdmin`}>
           <MakeAdmin></MakeAdmin>
+        </Route>
+
+        <Route path={`${path}/allSecurity`}>
+          <AllSecurityItam></AllSecurityItam>
         </Route>
       </Switch>
 

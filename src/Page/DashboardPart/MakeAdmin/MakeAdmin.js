@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
+    const [isAdmin, setIsAdmin] = useState(false);
      
 
     const hendalonBluer = e => {
@@ -28,7 +29,12 @@ const MakeAdmin = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            if(data.modifiedCount){
+                console.log(data);
+                setIsAdmin(true)
+
+            }
+          
         });
 
 

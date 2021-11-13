@@ -9,7 +9,7 @@ const useFirebase = () => {
   const [isloading, setIsloading] = useState(true);
   const [authError, setAuthError] = useState('');
 
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [admin, setAdmin] = useState(false);
 
 
   const auth = getAuth();
@@ -58,9 +58,10 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
+
         seavedUser(user.email, user.displayName, 'PUT');
         setAuthError('');
-        hostory.replace('/home')
+        hostory.replace('/')
 
       }).catch((error) => {
         setAuthError(error.message);
@@ -126,7 +127,7 @@ const useFirebase = () => {
   useEffect( () => {
       fetch(`https://guarded-beach-94669.herokuapp.com/user/${user.email}`)
       .then(res => res.json())
-      .then(data => setIsAdmin(data.admin))
+      .then(data => setAdmin(data.admin))
 
 
   } , [user.email])
@@ -134,7 +135,7 @@ const useFirebase = () => {
 
   return {
     user,
-    isAdmin,
+    admin,
     isloading,
     authError,
     registraUser,
